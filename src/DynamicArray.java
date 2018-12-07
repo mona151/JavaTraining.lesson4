@@ -13,17 +13,29 @@ public class DynamicArray {
         return array;
     }
     public void remove (int index){
-        array = arrayShifter(index);
+        array = arrayElementRemover(array, index);
     }
 
-    private int[] arrayShifter (int index){
-        int[] result = Arrays.copyOf(array,array.length - 1);
+    private int[] arrayElementRemover(int[] array, int index){
+        int[] result = new int[array.length-1];
+        if (index == 0){
+            result = Arrays.copyOfRange(array, 1, array.length);
+        }
+        if (index == array.length){
+            result = Arrays.copyOfRange(array, 0, array.length-1);
+        }
+        if (index > 0 && index < array.length){
+            for (int i = 0; i < index; i++) {
+                result[i] = array[i];
+            }
+            for (int i = index; i < array.length - 1; i++) {
+                result[i] = array[i+1];
+            }
+        }
         return result;
-      /*  for (int i = index; i >= array.length; i++) {
-            result[i] = array[i+1];
-        }*/
-
     }
+
+
     private int[] append(int[] array, int value) {
         int[] result = Arrays.copyOf(array, array.length + 1);
         result[result.length - 1] = value;
