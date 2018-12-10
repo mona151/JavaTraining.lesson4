@@ -23,5 +23,20 @@ public class Main {
 
         dynamicArray.remove(0);
         System.out.println(Arrays.toString(dynamicArray.getArray()));
+
+        ArrayGenerator arrayGenerator = new ArrayGenerator(40);
+        System.out.println(Arrays.toString(arrayGenerator.getArray()));
+
+        CollectionsUsage collectionsUsage = new CollectionsUsage(arrayGenerator.getArray());
+        collectionsUsage.printList();
+        collectionsUsage.shuffleList();
+        collectionsUsage.printList();
+        collectionsUsage.areElementsUnique();
+       /* collectionsUsage.addDuplicate(10);
+        collectionsUsage.areElementsUnique();*/
+       collectionsUsage.removeOddNumbers();
+       collectionsUsage.printList();
+       collectionsUsage.leastElement();
+       collectionsUsage. get2ndGreatestNumber();
     }
 }
